@@ -1,3 +1,5 @@
+#simple encryption algorithm
+
 alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
             'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
             'V', 'W', 'X', 'Y', 'Z']
@@ -20,8 +22,8 @@ def encryption():
     for i in text :
         eL = 0 #encryption letter index
         
-        if i == ' ' :
-            ciText += ' '
+        if not i.isalpha() :
+            ciText += i
             continue
         
         eL = (alphabet.index(i.upper()) + alphabet.index(key[j].upper())) % 26
@@ -37,8 +39,8 @@ def decryption():
     for i in text :
         dL = 0 #decryption letter index
         
-        if i == ' ' :
-            deText += ' '
+        if not i.isalpha() :
+            deText += i
             continue
         
         dL = alphabet.index(i.upper()) - alphabet.index(key[j].upper())
@@ -54,29 +56,8 @@ def decryption():
 
 if EnOrDe.upper() == 'E' :
     encryption = encryption()
-    print('the encryption of', text, 'is', encryption)
+    print('the encryption of', text, 'is', encryption.capitalize())
 else :
     decryption = decryption()
-    print('the decryption of', text, 'is', decryption)
+    print('the decryption of', text, 'is', decryption.capitalize())
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
